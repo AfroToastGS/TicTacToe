@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace TicTacToe
 {
+    [DefaultExecutionOrder(-1000)]
     public class GameManager : MonoBehaviour
     {
 
@@ -15,6 +16,8 @@ namespace TicTacToe
         public static GameManager Instance { get; private set; }
 
         public Action<EnumScenes> OnSceneChangeRequested;
+        public Action<string> OnGameEndRequested;
+        public Action<string> OnPlayerTurnChanged;
 
         #endregion
 
