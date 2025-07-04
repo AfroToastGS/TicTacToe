@@ -12,21 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f9a78ef9b630848851a8c353a5150f, type: 3}
   m_Name: Viking
   m_EditorClassIdentifier: 
-  mainMenuBackgroundImage: {fileID: 0}
-  gameBackgroundImage: {fileID: 0}
-  oPlayerImage: {fileID: 0}
-  xPlayerImage: {fileID: 0}
-  oPlayerTurnImage: {fileID: 0}
-  xPlayerTurnImage: {fileID: 0}
-  oPlayerWinImage: {fileID: 0}
-  xPlayerWinImage: {fileID: 0}
-  gameDrawImage: {fileID: 0}
-  startButtonImage: {fileID: 0}
-  restartButtonImage: {fileID: 0}
-  exitButtonImage: {fileID: 0}
-  backgroundMusic: {fileID: 0}
-  oPlayerPressSound: {fileID: 0}
-  xPlayerPressSound: {fileID: 0}
-  oPlayerWinSound: {fileID: 0}
-  xPlayerWinSound: {fileID: 0}
-  gameDrawSound: {fileID: 0}
+  mainMenuBackgroundImage: {fileID: 21300000, guid: 5f45a6841088a99459fcd5ac915d68ae, type: 3}
+  gameBackgroundImage: {fileID: 21300000, guid: 04056a366d90e684f97f8c164ed7d3e2, type: 3}
+  oPlayerImage: {fileID: 21300000, guid: a4e6389250b9478449cc01d0574e635c, type: 3}
+  xPlayerImage: {fileID: 21300000, guid: 23d0d412a5054e2419bc263f03c5f008, type: 3}
+  oPlayerTurnImage: {fileID: 21300000, guid: 1fe31ea614013f54fb8821ca4e7ea218, type: 3}
+  xPlayerTurnImage: {fileID: 21300000, guid: 4fc9468a84e776a4e82c34ca54344ba5, type: 3}
+  oPlayerWinImage: {fileID: 21300000, guid: 074374b243ccb6b46b08e54e0f6ebafb, type: 3}
+  xPlayerWinImage: {fileID: 21300000, guid: 0d5b2bcdbb50d124894934a057c05b3c, type: 3}
+  gameDrawImage: {fileID: 21300000, guid: a62e20faf9c02574ea80e76da78cde97, type: 3}
+  startButtonImage: {fileID: 21300000, guid: a1611d31da2feca4e8f59a892b57fc4d, type: 3}
+  restartButtonImage: {fileID: 21300000, guid: 99bbbec6513dd4345acda42936db6ce5, type: 3}
+  exitButtonImage: {fileID: 21300000, guid: 16195f87abd53bf48b298fedfe378762, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: b1251f07db84fff47b5aec0d3b82797f, type: 3}
+  oPlayerPressSound: {fileID: 8300000, guid: 6b8255f27e0e9374f81e444c13751af7, type: 3}
+  xPlayerPressSound: {fileID: 8300000, guid: 7325eacadf25630419169979b61f5dde, type: 3}
+  oPlayerWinSound: {fileID: 8300000, guid: a28abde681bef4141bd869526840465c, type: 3}
+  xPlayerWinSound: {fileID: 8300000, guid: aec8a12fc3dea3047b346c3f24ec54cf, type: 3}
+  gameDrawSound: {fileID: 8300000, guid: a52145af32cd7e14dbf5a7db075b78e8, type: 3}

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace TicTacToe
 {
@@ -6,6 +7,10 @@ namespace TicTacToe
     {
 
         #region Inspector properties
+
+        public Image backgroundImage;
+        public Image playButton;
+        public Image exitButton;
 
         #endregion
 
@@ -21,12 +26,17 @@ namespace TicTacToe
 
         private void Awake()
         {
-
+            // Ensure the background image is set from the GameTheme
+            if (GameManager.Instance != null && GameManager.Instance.gameTheme != null)
+            {
+                backgroundImage.sprite = GameManager.Instance.gameTheme.mainMenuBackgroundImage;
+                playButton.sprite = GameManager.Instance.gameTheme.startButtonImage;
+                exitButton.sprite = GameManager.Instance.gameTheme.exitButtonImage;
+            }
         }
 
         private void Start()
         {
-
         }
 
         private void Update()
