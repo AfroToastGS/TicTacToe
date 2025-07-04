@@ -8,7 +8,10 @@ namespace TicTacToe
 
         #region Inspector properties
 
+        [Header("Background")]
         public Image backgroundImage;
+
+        [Header("Menu Buttons")]
         public Image playButton;
         public Image exitButton;
 

@@ -46,6 +46,13 @@ namespace TicTacToe
                 sfxSource.PlayOneShot(clip);
             }
         }
+        public void StopSFX()
+        {
+            if (sfxSource != null)
+            {
+                sfxSource.Stop();
+            }
+        }
 
         #endregion
     }

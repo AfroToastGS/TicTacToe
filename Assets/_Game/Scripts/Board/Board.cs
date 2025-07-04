@@ -60,12 +60,18 @@ public class Board : MonoBehaviour
         if (cell.IsOccupied || gameEnded) return;
         // Set the cell's value to the current player's symbol
         cell.CurrnetValue = currentPlayer;
+        // Sound the click effect
+        GameManager.Instance.audioManager.PlaySFX(currentPlayer == "X" ? GameManager.Instance.gameTheme.xPlayerPressSound : GameManager.Instance.gameTheme.oPlayerPressSound);
         // Check the game status after the move
         CheckGameStatus();
-        // Switch to the next player
-        currentPlayer = currentPlayer == "X" ? "O" : "X";
-        // Notify the UI about the player turn change
-        GameManager.Instance.OnPlayerTurnChanged?.Invoke(currentPlayer);
+        // check if the game has ended
+        if (!gameEnded)
+        {
+            // Switch to the next player
+            currentPlayer = currentPlayer == "X" ? "O" : "X";
+            // Notify the UI about the player turn change
+            GameManager.Instance.OnPlayerTurnChanged?.Invoke(currentPlayer);
+        }
     }
 
     void CheckGameStatus()
