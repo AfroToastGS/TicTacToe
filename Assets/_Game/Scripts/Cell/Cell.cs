@@ -1,5 +1,7 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace TicTacToe
 {
@@ -8,7 +10,7 @@ namespace TicTacToe
 
         #region Inspector properties
 
-        public TMPro.TextMeshProUGUI cellText;
+        public Image cellImage;
 
         #endregion
 
@@ -20,7 +22,10 @@ namespace TicTacToe
             {
                 currnetValue = value;
                 // Update the cell's visual representation here if needed
-                cellText.text = currnetValue;
+                cellImage.sprite = currnetValue == "X" ? GameManager.Instance.gameTheme.xPlayerImage :
+                                currnetValue == "O" ? GameManager.Instance.gameTheme.oPlayerImage :
+                                null; // Set to null or a default sprite if empty
+                cellImage.color = string.IsNullOrEmpty(currnetValue) ? new Color(1f, 1f, 1f, 0f) : Color.white; // Reset color if empty
             }
         }
 

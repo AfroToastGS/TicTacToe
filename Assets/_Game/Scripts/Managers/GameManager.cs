@@ -3,11 +3,16 @@ using UnityEngine;
 
 namespace TicTacToe
 {
-    [DefaultExecutionOrder(-1000)]
+    [DefaultExecutionOrder(-1000),
+     RequireComponent(typeof(AudioManager))]
     public class GameManager : MonoBehaviour
     {
 
         #region Inspector properties
+
+        public GameTheme gameTheme;
+        // Reference to the AudioManager component
+        public AudioManager audioManager;
 
         #endregion
 
@@ -38,19 +43,15 @@ namespace TicTacToe
             else
             {
                 Destroy(gameObject); // Destroy duplicate instances
+                return;
             }
-        }
-
-        private void Start()
-        {
             // Subscribe to the scene change event
             OnSceneChangeRequested += OnSceneChangeRequestedHandler;
         }
 
-
-        private void Update()
+        private void Start()
         {
-
+            audioManager.PlayBackgroundMusic(gameTheme.backgroundMusic);
         }
 
         private void OnDestroy()
