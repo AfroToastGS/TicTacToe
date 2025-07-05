@@ -21,7 +21,7 @@ namespace TicTacToe
         public static GameManager Instance { get; private set; }
 
         public Action<EnumScenes> OnSceneChangeRequested;
-        public Action<string> OnGameEndRequested;
+        public Action<EnumGameStatus> OnGameEndRequested;
         public Action<string> OnPlayerTurnChanged;
 
         #endregion

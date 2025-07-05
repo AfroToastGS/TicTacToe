@@ -82,14 +82,14 @@ public class Board : MonoBehaviour
             if (!string.IsNullOrEmpty(cells[i, 0].CurrnetValue) &&
                 cells[i, 0] == cells[i, 1] && cells[i, 1] == cells[i, 2])
             {
-                EndGame(cells[i, 0].CurrnetValue);
+                EndGame(EnumGameStatusExtensions.FromString(cells[i, 0].CurrnetValue));
                 return;
             }
 
             if (!string.IsNullOrEmpty(cells[0, i].CurrnetValue) &&
                 cells[0, i] == cells[1, i] && cells[1, i] == cells[2, i])
             {
-                EndGame(cells[0, i].CurrnetValue);
+                EndGame(EnumGameStatusExtensions.FromString(cells[0, i].CurrnetValue));
                 return;
             }
         }
@@ -100,7 +100,7 @@ public class Board : MonoBehaviour
             if ((cells[0, 0] == cells[1, 1] && cells[1, 1] == cells[2, 2]) ||
                 (cells[0, 2] == cells[1, 1] && cells[1, 1] == cells[2, 0]))
             {
-                EndGame(cells[1, 1].CurrnetValue);
+                EndGame(EnumGameStatusExtensions.FromString(cells[1, 1].CurrnetValue));
                 return;
             }
         }
@@ -117,15 +117,15 @@ public class Board : MonoBehaviour
         }
 
         if (draw)
-            EndGame("");
+            EndGame(EnumGameStatus.Draw);
     }
 
-    void EndGame(string message)
+    void EndGame(EnumGameStatus status)
     {
         // Set the result view active to show the end game message
         gameEnded = true;
         // Notify the game manager about the game end
-        GameManager.Instance.OnGameEndRequested?.Invoke(message);
+        GameManager.Instance.OnGameEndRequested?.Invoke(status);
     }
 
     #endregion

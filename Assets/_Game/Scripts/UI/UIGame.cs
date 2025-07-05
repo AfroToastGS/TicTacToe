@@ -80,31 +80,32 @@ namespace TicTacToe
             GameManager.Instance.audioManager.StopSFX(); // Stop any ongoing SFX
         }
 
-        private void OnGameEndRequestedHandler(string winner)
+        private void OnGameEndRequestedHandler(EnumGameStatus status)
         {
-            // Set the winner image based on the winner
-            if (winner == "O")
+            // Set the winner image and sound based on the status
+            switch (status)
             {
-                winnerImage.sprite = GameManager.Instance.gameTheme.oPlayerWinImage;
-                GameManager.Instance.audioManager.PlaySFX(
-            GameManager.Instance.gameTheme.oPlayerWinSound);
+                case EnumGameStatus.OPlayerWon:
+                    winnerImage.sprite = GameManager.Instance.gameTheme.oPlayerWinImage;
+                    GameManager.Instance.audioManager.PlaySFX(
+                GameManager.Instance.gameTheme.oPlayerWinSound);
+                    break;
+                case EnumGameStatus.XPlayerWon:
+                    winnerImage.sprite = GameManager.Instance.gameTheme.xPlayerWinImage;
+                    GameManager.Instance.audioManager.PlaySFX(
+                GameManager.Instance.gameTheme.xPlayerWinSound);
+                    break;
+                case EnumGameStatus.Draw:
+                    winnerImage.sprite = GameManager.Instance.gameTheme.gameDrawImage;
+                    GameManager.Instance.audioManager.PlaySFX(
+                                GameManager.Instance.gameTheme.gameDrawSound);
+                    break;
             }
-            else if (winner == "X")
-            {
-                winnerImage.sprite = GameManager.Instance.gameTheme.xPlayerWinImage;
-                GameManager.Instance.audioManager.PlaySFX(
-            GameManager.Instance.gameTheme.xPlayerWinSound);
-            }
-            else
-            {
-                winnerImage.sprite = GameManager.Instance.gameTheme.gameDrawImage; // No winner, it's a draw
-                GameManager.Instance.audioManager.PlaySFX(
-                            GameManager.Instance.gameTheme.gameDrawSound);
-            }
+
             // Show the result view
             resultView.gameObject.SetActive(true);
             // Display the winner message
-            Debug.Log(string.IsNullOrEmpty(winner) ? "It's a draw!" : $"{winner} wins!");
+            Debug.Log(status.ToFriendlyString());
         }
 
         private void OnPlayerTurnChangedHandler(string currentPlayer)
